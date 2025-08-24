@@ -98,4 +98,64 @@ header .header-top .controls .unit-toggle button {
 header .header-top .controls .unit-toggle button.active {
   background: var(--surface-strong);
   color: var(--text);
+}
+header #search-form {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  padding: 10px;
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+header #search-form #city-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--outline);
+  background: var(--surface-strong);
+  color: var(--text);
+}
+header #search-form .primary-btn,
+header #search-form .ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid var(--outline);
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+header #search-form .primary-btn:hover,
+header #search-form .ghost-btn:hover {
+  filter: brightness(1.05);
+}
+header #search-form .primary-btn {
+  background: linear-gradient(180deg, var(--primary), #1d4ed8);
+  color: white;
+}
+header #search-form .ghost-btn {
+  background: var(--surface);
+  color: var(--text);
+}
+header #recent-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+header #recent-chips .chip {
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+header #recent-chips .chip:hover {
+  filter: brightness(90%);
 }/*# sourceMappingURL=styles.css.map */

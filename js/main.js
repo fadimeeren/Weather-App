@@ -1,4 +1,4 @@
-import { uiElement, updateThemeIcon } from "./ui.js";
+import { uiElement, updateThemeIcon, renderCityList } from "./ui.js";
 
 // Body
 const body = document.body;
@@ -20,6 +20,10 @@ const persist = () => {
     localStorage.setItem("theme", STATE.theme);
 }
 // ! Events
+// Sayfa içeriği yüklendiğinde 
+document.addEventListener("DOMContentLoaded", ()=> {
+    renderCityList();
+;})
 // Tema butonuna tıklanma olayını izle
 uiElement.themeBtn.addEventListener("click", () => {
 
