@@ -3,22 +3,35 @@ import { uiElement, updateThemeIcon } from "./ui.js";
 // Body
 const body = document.body;
 
-// Mevcut tema değeri
-const theme = "light";
 
+//! Projede tutulan veriler
+const STATE = {
+theme: localStorage.getItem("theme") || "dark",
+};
 
 // Body'e tema değerini attribute olarak ekle
-body.setAttribute("data-theme", theme);
+body.setAttribute("data-theme", STATE.theme);
+updateThemeIcon(STATE.theme);
 
+
+// ! Fonsiyonlar
+// Mevcut değerleri localStoreage'e kaydet
+const persist = () => {
+    localStorage.setItem("theme", STATE.theme);
+}
+// ! Events
 // Tema butonuna tıklanma olayını izle
 uiElement.themeBtn.addEventListener("click", () => {
 
-    // Mevcut tema değerine eriş
-    const currentTheme = body.getAttribute("data-theme");
-    
-    // Erişilen tema değerinin tersini al
-    const newTheme = currentTheme === "light" ? "dark" : "light" ;
+    // STATE'de tema değerinin tersini al
+    STATE.theme = STATE.theme  === "light" ? "dark" : "light" ;
 
     // Tema değerini body'e attribute olarak ekle
-    body.setAttribute("data-theme", newTheme);
+    body.setAttribute("data-theme", STATE.theme);
+
+    // Son temayı localStoreage'e kaydet
+    persist();
+
+    // İconu güncelle
+    updateThemeIcon(STATE.theme);
 });
